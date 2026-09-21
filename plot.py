@@ -6,15 +6,15 @@ plt.style.use("style.mplstyle")
 df = pd.read_excel("plotdatapractice.xlsx")
 
 
-sources = ["Coal", "Natural Gas", "Nuclear", "Hydro", "Solar", "Wind", "Other"]
-colors = {"Solar": "#E1FF00", "Wind": "#63d0ff", "Hydro": "#002b53", "Nuclear": "#7E0080", "Coal": "#4d4d4d", "Natural Gas": "#008111", "Other": "#940000"}
+sources = ["Solar", "Wind", "Nuclear", "Hydro", "Coal", "Natural Gas", "Other"]
+colors = {"Solar": "#FFC919", "Wind": "#63d0ff", "Hydro": "#002b53", "Nuclear": "#7E0080", "Coal": "#D3D3D3", "Natural Gas": "#008111", "Other": "#6A0000"}
 
 
 
-fig, ax = plt.subplots(figsize=(8, 6))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 
-ax.stackplot(df.index, df["Coal"], df["Natural Gas"], df["Nuclear"], df["Hydro"], df["Solar"], df["Wind"], df["Other"], labels=sources, colors=[colors[src] for src in sources])
+ax.stackplot(df.index, df["Solar"], df["Wind"], df["Nuclear"], df["Hydro"], df["Coal"], df["Natural Gas"], df["Other"], labels=sources, colors=[colors[src] for src in sources])
 
 ax.set_xlabel("Hours of the Year"); ax.set_ylabel("Total Generation (MW)")
 ax.set_title("ISNE 2019 Generation"); ax.set_xlim(0, 8760); ax.set_ylim(0, 22000)
